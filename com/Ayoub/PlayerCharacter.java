@@ -1,6 +1,6 @@
 package com.Ayoub;
 
-public class PlayerCharacter extends InGameID implements ArenaPlayer{
+public class PlayerCharacter extends InGameId implements ArenaPlayer{
     private String name;
     private int level;
     private int rating;
@@ -22,6 +22,14 @@ public class PlayerCharacter extends InGameID implements ArenaPlayer{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getRating() {
@@ -53,12 +61,17 @@ public class PlayerCharacter extends InGameID implements ArenaPlayer{
         if (rating1 > 2000 && rating2 > 2000) {
             return (rating1 - rating2) < 200 && -200 > (rating1 - rating2);
         }
-        // and if it's greater than 1000, it can't be more than 500 points apart
+        // and if it's above 1000, it can't be more than 500 points apart
         else if (rating1 > 1000 && rating2 > 1000) {
             return (rating1 - rating2) < 500 && -500 > (rating1 - rating2);
         }
         else{
             return true;
         }
+    }
+
+    public String toString(){
+        return "\nId: " + getId() + "\nName: " + getName() + "\nLevel: " + getLevel() +
+                "\nRating: " + getRating() + "\nClass: " + getClassType() + "\nRole: " + getSpecType();
     }
 }
