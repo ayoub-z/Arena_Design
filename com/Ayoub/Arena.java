@@ -4,7 +4,7 @@ public class Arena implements Cast{
     private final ArenaPlayer arenaPlayer1;
     private final ArenaPlayer arenaPlayer2;
     private final Cast liveStream;
-    private final Cast cast;
+    private final Cast commentaryCast;
 
     public Arena(ArenaPlayer arenaPlayer1, ArenaPlayer arenaPlayer2, Cast liveStream, Cast cast) throws Exception {
         // Players with the same specialization type cannot play against each other, unless they are both dps.
@@ -17,7 +17,7 @@ public class Arena implements Cast{
         this.arenaPlayer1 = arenaPlayer1;
         this.arenaPlayer2 = arenaPlayer2;
         this.liveStream = liveStream;
-        this.cast = cast;
+        this.commentaryCast = cast;
     }
 
     public ArenaPlayer getArenaPlayer1() {
@@ -33,7 +33,7 @@ public class Arena implements Cast{
     }
 
     public String getName() {
-        return cast.getName();
+        return commentaryCast.getName();
     }
 
     public String toString(){
