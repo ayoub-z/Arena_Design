@@ -15,7 +15,8 @@ It contains the following classes:
 And in the main function all the information of the players will be noted down, as well as the streaming channel and the commentator.
 
 Players that fight each other need to fit these requirements:
-- Players with the same specialization (meaning Dps, Healer, Tank) may not fight each other. Only a Dps may fight another dps
+- Players with the same specialization may not fight each other. Only a Dps may fight other Dps.
+Tanks may not fight each other and Healers also may not fight each other.
 - Players with a rating between 1000-1999 can't be more than 500 rating points apart.
 - Players with a rating of 2000 or above can't be more than 200 rating points apart.
 
