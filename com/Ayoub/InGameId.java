@@ -1,10 +1,10 @@
 package com.Ayoub;
 
-public class InGameID {
+public class InGameId {
     private String id;
 
     // each player is part of an "account" and this account has an id
-    public InGameID(String id) {
+    public InGameId(String id) {
         this.id = id;
     }
 
