@@ -58,15 +58,15 @@ public class PlayerCharacter extends InGameId implements ArenaPlayer{
 
     public boolean compareRating(int rating1, int rating2) {
         // if their rating is greater than 2000, it can't be more than 200 points apart
-        if (rating1 > 2000 && rating2 > 2000) {
+        if (rating1 >= 2000 || rating2 >= 2000) {
             return (rating1 - rating2) < 200 && -200 > (rating1 - rating2);
         }
         // and if it's above 1000, it can't be more than 500 points apart
-        else if (rating1 > 1000 && rating2 > 1000) {
-            return (rating1 - rating2) < 500 && -500 > (rating1 - rating2);
+        else if (rating1 >= 1000 || rating2 >= 1000) {
+            return (rating1 - rating2) < 250 && -250 > (rating1 - rating2);
         }
         else{
-            return true;
+            return false;
         }
     }
 
