@@ -1,13 +1,14 @@
 package com.Ayoub;
 
-public class PlayerCharacter{
+public class PlayerCharacter extends InGameID implements ArenaPlayer{
     private String name;
     private int level;
     private int rating;
     private String classType;
     private String specType;
 
-    public PlayerCharacter(String nm, int lvl, int rt, String clst, String spct) {
+    public PlayerCharacter(String id,String nm, int lvl, int rt, String clst, String spct) {
+        super(id);
         this.name = nm;
         this.level = lvl;
         this.rating = rt;
@@ -48,6 +49,16 @@ public class PlayerCharacter{
     }
 
     public boolean compareRating(int rating1, int rating2) {
-        return false;
+        // if their rating is greater than 2000, it can't be more than 200 points apart
+        if (rating1 > 2000 && rating2 > 2000) {
+            return (rating1 - rating2) < 200 && -200 > (rating1 - rating2);
+        }
+        // and if it's greater than 1000, it can't be more than 500 points apart
+        else if (rating1 > 1000 && rating2 > 1000) {
+            return (rating1 - rating2) < 500 && -500 > (rating1 - rating2);
+        }
+        else{
+            return true;
+        }
     }
 }
