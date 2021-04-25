@@ -10,7 +10,7 @@ public class Arena implements Cast{
         // Players with the same specialization type cannot play against each other, unless they are both dps.
         if (arenaPlayer1.getSpecType().equals(arenaPlayer2.getSpecType()) && !arenaPlayer1.getSpecType().equals("Dps")) {
             throw new Exception(arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " can't both be a " + arenaPlayer1.getSpecType());
-        }
+        } // Players need to be within 500 or 200 rating points depending on their rating.
         if (!arenaPlayer1.compareRating(arenaPlayer1.getRating(), arenaPlayer2.getRating())) {
             throw new Exception("The rating of " + arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " is too far apart");
         }
@@ -28,10 +28,6 @@ public class Arena implements Cast{
         return arenaPlayer2;
     }
 
-    public String getSpecType() {
-        return arenaPlayer1.getSpecType() + "/" + arenaPlayer2.getSpecType();
-    }
-
     public String getStreamName() {
         return liveStream.getStreamName();
     }
@@ -39,10 +35,6 @@ public class Arena implements Cast{
     public String getName() {
         return cast.getName();
     }
-
-    public void setLiveStream(String ls){
-    }
-
 
     public String toString(){
         return "\nThere are 2 fighters in this match: \n------------------------------------" +
