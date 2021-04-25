@@ -71,7 +71,7 @@ public class PlayerCharacter extends InGameId implements ArenaPlayer{
     }
 
     public String toString(){
-        return "\nId: " + getId() + "\nName: " + getName() + "\nLevel: " + getLevel() +
+        return "\nID: " + getId() + "\nPlayer name: " + getName() + "\nLevel: " + getLevel() +
                 "\nRating: " + getRating() + "\nClass: " + getClassType() + "\nRole: " + getSpecType();
     }
 }
