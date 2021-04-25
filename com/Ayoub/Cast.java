@@ -1,5 +1,6 @@
 package com.Ayoub;
 
-public interface Streaming {
+public interface Cast {
     String getStreamName();
+    String getName();
 }
