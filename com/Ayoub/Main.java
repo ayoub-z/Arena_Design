@@ -23,10 +23,8 @@ public class Main {
         Arena match2 = new Arena(player3, player4, stream, cast);
         System.out.println("\n\n" + match2);
 
-        player6.setSpecType("Dps"); // both player 5 and 6 are tanks, which gives an Exception error. Setting player6's role as dps to circumvent
         Arena match3 = new Arena(player5, player6, stream, cast);
         System.out.println("\n\n" + match3);
-
 
 
     }
