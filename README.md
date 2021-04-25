@@ -17,7 +17,7 @@ In the Main class all the information of the players will be noted down, as well
 
 Players that fight each other need to fit these requirements:
 - Players with the same specialization may not fight each other. Only a Dps may fight other Dps.
-Tanks may not fight each other and Healers also may not fight each other.
+Tanks may not fight other Tanks and Healers also may not fight other Tanks.
 - Players with a rating between 1000-1999 can't be more than 500 rating points apart.
 - Players with a rating of 2000 or above can't be more than 200 rating points apart.
 
