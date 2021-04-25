@@ -1,17 +1,21 @@
 package com.Ayoub;
 
-public class Arena {
+public class Arena implements Streaming{
     private final ArenaPlayer arenaPlayer1;
     private final ArenaPlayer arenaPlayer2;
-    private LiveStream liveStream;
+    private final Streaming liveStream;
 
-    public Arena(ArenaPlayer arenaPlayer1, ArenaPlayer arenaPlayer2) throws Exception {
+    public Arena(ArenaPlayer arenaPlayer1, ArenaPlayer arenaPlayer2, Streaming liveStream) throws Exception {
         // Players with the same specialization type cannot play against each other, unless they are both dps.
         if ( arenaPlayer1.getSpecType().equals(arenaPlayer2.getSpecType()) && !arenaPlayer1.getSpecType().equals("Dps")) {
-            throw new Exception("The spec type of player 1 cannot be the same as that of player2, unless if they are both damage dealers");
+            throw new Exception(arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " can't both be a " + arenaPlayer1.getSpecType());
+        }
+        if (arenaPlayer1.compareRating(arenaPlayer1.getRating(), arenaPlayer2.getRating())) {
+            throw new Exception("The rating of " + arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " is too far apart");
         }
         this.arenaPlayer1 = arenaPlayer1;
         this.arenaPlayer2 = arenaPlayer2;
+        this.liveStream = liveStream;
     }
 
     public ArenaPlayer getArenaPlayer1() {
@@ -26,7 +30,21 @@ public class Arena {
         return arenaPlayer1.getSpecType() + "/" + arenaPlayer2.getSpecType();
     }
 
-    public LiveStream getLiveStream() {
-        return liveStream;
+    public String getStreamName() {
+        return liveStream.getStreamName();
     }
+
+    public void setLiveStream(String ls){
+    }
+
+    public String toString(){
+        return "\nThere are 2 fighters in this match: \n------------------------------------" +
+                "\nPlayer 1: " + getArenaPlayer1().getName() + "\n\tRole: " + getArenaPlayer1().getSpecType() + "\n\tClass: " +
+                getArenaPlayer1().getClassType() + "\n\tRating: " + getArenaPlayer1().getRating() + "\n\nPlayer 2: " +
+                getArenaPlayer2().getName() + "\n\tRole: " + getArenaPlayer2().getSpecType() + "\n\tClass: " +
+                getArenaPlayer2().getClassType() + "\n\tRating: " + getArenaPlayer2().getRating() +
+                "\n These matches will be streamed on: " + getStreamName();
+    }
+
+
 }
