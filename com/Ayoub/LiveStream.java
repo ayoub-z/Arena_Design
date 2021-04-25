@@ -3,7 +3,7 @@ package com.Ayoub;
 // arena matches will be livestreamed on one main streaming channel
 public class LiveStream implements Cast {
     private String streamName;
-    private Cast cast;
+    private Cast commentaryCast;
 
     public LiveStream(String sn) {
         this.streamName = sn;
@@ -14,7 +14,7 @@ public class LiveStream implements Cast {
     }
 
     public String getName() {
-        return cast.getName();
+        return commentaryCast.getName();
     }
 
     public void setStreamName(String sn) {
