@@ -1,6 +1,6 @@
 package com.Ayoub;
 
-// arena matches will be livestreamed on one main streaming channel
+// arena matches will be livestreamed on the World of Warcraft main streaming channel
 public class LiveStream implements Cast {
     private String streamName;
     private Cast commentaryCast;
