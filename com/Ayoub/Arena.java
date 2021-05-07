@@ -36,8 +36,22 @@ public class Arena implements Cast{
         return commentaryCast.getName();
     }
 
+    // player with higher rating wins match
+    // if rating is within 100 points of each other, it's a draw
+    public String matchResults(){
+        if (100 >= (arenaPlayer1.getRating() - arenaPlayer2.getRating()) && -100 <= (arenaPlayer1.getRating() - arenaPlayer2.getRating())){
+            return "\nMatch result: The match has ended in a draw!\n";
+        }
+        else if (arenaPlayer1.getRating() > arenaPlayer2.getRating()){
+            return "\nMatch result: " + arenaPlayer1.getName() + " has won the match!\n";
+        }
+        else{
+            return "\nMatch result: " + arenaPlayer2.getName() + " has won the match!\n";
+        }
+
+    }
     public String toString(){
-        return "\nThere are 2 fighters in this match: \n------------------------------------" +
+        return "There are 2 fighters in this match: \n------------------------------------" +
                 "\nPlayer 1: " + getArenaPlayer1().getName() + "\n\tRole: " + getArenaPlayer1().getSpecType() + "\n\tClass: " +
                 getArenaPlayer1().getClassType() + "\n\tRating: " + getArenaPlayer1().getRating() + "\n\nPlayer 2: " +
                 getArenaPlayer2().getName() + "\n\tRole: " + getArenaPlayer2().getSpecType() + "\n\tClass: " +
