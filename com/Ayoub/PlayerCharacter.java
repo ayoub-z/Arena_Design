@@ -70,6 +70,21 @@ public class PlayerCharacter extends InGameId implements ArenaPlayer{
         }
     }
 
+    public boolean equals(Object obj) {
+        // Players with the same specialization type cannot play against each other, unless they are both dps.
+        boolean properSpecs = false;
+
+        if (obj instanceof PlayerCharacter secondSpec){
+
+            if (!this.specType.equals(secondSpec.specType) || this.specType.equals("Dps")) {
+
+                properSpecs = true;
+            }
+
+        }
+        return properSpecs;
+    }
+
     public String toString(){
         return "\nID: " + getId() + "\nPlayer name: " + getName() + "\nLevel: " + getLevel() +
                 "\nRating: " + getRating() + "\nClass: " + getClassType() + "\nRole: " + getSpecType();

@@ -8,8 +8,8 @@ public class Arena implements Cast{
 
     public Arena(ArenaPlayer arenaPlayer1, ArenaPlayer arenaPlayer2, Cast liveStream, Cast cast) throws Exception {
         // Players with the same specialization type cannot play against each other, unless they are both dps.
-        if (arenaPlayer1.getSpecType().equals(arenaPlayer2.getSpecType()) && !arenaPlayer1.getSpecType().equals("Dps")) {
-            throw new Exception(arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " can't both be a " + arenaPlayer1.getSpecType());
+        if (!arenaPlayer1.equals(arenaPlayer2)) {
+            throw new Exception(arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " can't both have the same spec, unless they're both a dps");
         } // Players need to be within 500 or 200 rating points depending on their rating.
         if (!arenaPlayer1.compareRating(arenaPlayer1.getRating(), arenaPlayer2.getRating())) {
             throw new Exception("The rating of " + arenaPlayer1.getName() + " and " + arenaPlayer2.getName() + " is too far apart");
