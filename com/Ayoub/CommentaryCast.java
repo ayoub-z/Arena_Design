@@ -2,7 +2,7 @@ package com.Ayoub;
 
 // in the livestream there will be one commentator
 public class CommentaryCast implements Cast{
-    String name;
+    private String name;
     private Cast liveStream;
 
     public CommentaryCast(String name) {
