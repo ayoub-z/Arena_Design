@@ -1,5 +1,7 @@
 package com.Ayoub;
 
+import static java.lang.Math.abs;
+
 public class Arena implements Cast{
     private final ArenaPlayer arenaPlayer1;
     private final ArenaPlayer arenaPlayer2;
@@ -40,15 +42,24 @@ public class Arena implements Cast{
     // if rating is within 100 points of each other, it's a draw
     public String matchResults(){
         if (100 >= (arenaPlayer1.getRating() - arenaPlayer2.getRating()) && -100 <= (arenaPlayer1.getRating() - arenaPlayer2.getRating())){
-            return "\nMatch result: The match has ended in a draw!\n";
+            return "\nMatch result: The match has ended in a draw!";
         }
         else if (arenaPlayer1.getRating() > arenaPlayer2.getRating()){
-            return "\nMatch result: " + arenaPlayer1.getName() + " has won the match!\n";
+            return "\nMatch result: " + arenaPlayer1.getName() + " has won the match!";
         }
         else{
-            return "\nMatch result: " + arenaPlayer2.getName() + " has won the match!\n";
+            return "\nMatch result: " + arenaPlayer2.getName() + " has won the match!";
         }
 
+    }
+
+
+    public String matchDuration() {
+        int ratingDifference = abs(arenaPlayer1.getRating() - arenaPlayer2.getRating());
+        // subtract 999 from the rating difference and divide it by 5. this way the match lasts longer
+        // the smaller the rating difference is, and shorter, the bigger the rating difference is.
+        // the + 10 ensures the match duration will at least be 10 seconds.
+        return "Match duration: " + (abs(abs(ratingDifference) - 999) / 5 + 10) + " seconds.\n";
     }
     public String toString(){
         return "There are 2 fighters in this match: \n------------------------------------" +
